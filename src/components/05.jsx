@@ -15,3 +15,52 @@ export default function Five() {
         </div>
     )
 }
+
+// ----------------------------------------------------------
+import { useState } from 'react'
+
+export default function Page() {
+
+    const [user, setUser] = useState({
+        name: 'John',
+        age: 30,
+        gender: 'male'
+    })
+
+    let Change = () => {
+        setUser({
+            ...user,
+            name: 'Doe',
+            gender: 'female',
+            age: Math.floor(Math.random() * 100)
+        })
+    }
+
+    return (
+        <div>
+            <p>Name : {user.name}</p>
+            <p>Age : {user.age}</p>
+            <p>Gender : {user.gender}</p>
+            <button onClick={Change}>Change</button>
+        </div>
+    )
+}
+
+// ----------------------------------------------------------
+
+import { useState } from 'react'
+
+export default function Page() {
+
+    let [a, seta] = useState('')
+
+    return (
+        <div>
+            {
+                console.log(a)
+            }
+            <p>{a}</p>
+            <input type="text" onChange={(e) => seta(e.target.value)} />
+        </div>
+    )
+}
