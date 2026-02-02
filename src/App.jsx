@@ -1,9 +1,9 @@
-import Page from './components/Form/05';
+import Todo from './components/Todo/Todo';
 
 export default function App() {
   return (
     <div>
-      <Page />
+      <Todo />
     </div>
   )
 }
