@@ -1,9 +1,9 @@
-import Todo from './components/Todo/Todo';
+import Page from './components/React/08';
 
 export default function App() {
   return (
     <div>
-      <Todo />
+      <Page />
     </div>
   )
 }

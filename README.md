@@ -8,3 +8,5 @@
 - [x] Array and Object
 - [X] Props
 - [X] State
+- [X] Todo
+- [X] useEffect
