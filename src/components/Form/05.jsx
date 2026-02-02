@@ -1,48 +1,57 @@
 import { useState } from 'react';
 
 export default function Page() {
-
-    const [formdate, setFormdata] = useState({
+    const [formdata, setFormdata] = useState({
         username: "",
         password: "",
         error: ''
-    })
+    });
 
-    let hendelClick = (e) => {
+    const handleClick = (e) => {
         e.preventDefault();
 
-        if (!formdate.username || !formdate.password) {
-            setFormdata((prev) => ({
-                ...prev,
-                error: "All fields are required"
-            }))
-            return;
+        if (!formdata.username || !formdata.password) {
+            setFormdata({ ...formdata, error: "All fields are required" });
+        } else {
+            setFormdata({ ...formdata, error: "" });
+            alert("Form submitted");
+            console.log(formdata);
         }
+    };
 
-        alert("Form submitted");
-        console.log(formdate);
-    }
+    const handleChange = (e) => {
+        setFormdata({ ...formdata, [e.target.name]: e.target.value });
+    };
 
-    let hendelChange = (e) => {
-        const { name, value } = e.target;
-        setFormdata((prev) => ({
-            ...prev,
-            [name]: value
-        }))
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleClick(e);
+    };
 
     return (
         <div>
-            <form action="">
-                <label htmlFor="">Username</label>
-                <input type="text" name="username" onChange={hendelChange} />
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username</label>
+                <input 
+                    id="username"
+                    type="text" 
+                    name="username" 
+                    value={formdata.username}
+                    onChange={handleChange} 
+                />
 
-                <label htmlFor="">Password</label>
-                <input type="password" name="password" onChange={hendelChange} />
-        
-                <p>{formdate.error}</p>
-                <button onClick={hendelClick}>Submit</button>
+                <label htmlFor="password">Password</label>
+                <input 
+                    id="password"
+                    type="password" 
+                    name="password" 
+                    value={formdata.password}
+                    onChange={handleChange} 
+                />
+
+                {formdata.error && <p>{formdata.error}</p>}
+                <button type="submit">Submit</button>
             </form>
         </div>
-    )
+    );
 }
