@@ -1,24 +1,27 @@
+import { useRef } from 'react'
 import { useState } from 'react'
 
-export default function ExpanceForm({ onAddExpance }) {
+export default function ExpenseForm({ onAddExpense }) {
 
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState('')
+    const refTitle = useRef()
 
-    const hendelSubmit = () => {
+    const hendelSubmit = (e) => {
         e.preventDefault();
 
         if (!title || !amount) return alert('Fill all Filds!')
 
-        const newExpance = {
+        const newExpense = {
             id: Date.now(),
             title,
             amount: parseFloat(amount)
         }
 
-        onAddExpance(newExpance)
+        onAddExpense(newExpense)
         setTitle('')
         setAmount('')
+        refTitle.current.focus()
 
     }
 
@@ -27,9 +30,10 @@ export default function ExpanceForm({ onAddExpance }) {
             <form className='expence-form' onSubmit={hendelSubmit}>
                 <input
                     type="text"
-                    placeholder='Enter Expance Tille'
+                    placeholder='Enter Expense Tille'
                     value={title}
                     onChange={(e) => (setTitle(e.target.value))}
+                    ref={refTitle}
                 />
                 <input
                     type="text"

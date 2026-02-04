@@ -1,25 +1,36 @@
-import { useState } from 'react';
-import ExpanceForm from './components/ExpanceForm';
-import ExpanceList from './components/ExpanceList';
+import { useEffect, useState } from 'react';
+import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
+import './styles.css';
 
 export default function Index() {
 
-  const [expanes, setExpanes] = useState([])
+  const [expanes, setExpanes] = useState(() => {
+    const saveData = localStorage.getItem("expanes")
+    return saveData ? JSON.parse(saveData) : []
+  })
 
-  const addExpance = (exp) => {
+  useEffect(() => {
+    localStorage.setItem('expanes', JSON.stringify(expanes))
+  }, [expanes])
+
+
+  const addExpense = (exp) => {
     setExpanes((prev) => [...prev, exp])
   }
 
-  const delExpance = (id) => {
-    alert("Del Exp")
+  const delExpense = (id) => {
+    setExpanes(expanes.filter(exp => exp.id !== id))
   }
+
+  let total = expanes.reduce((sum, item) => sum + item.amount, 0)
 
   return (
     <div className='app-container'>
-      <h1>Expance Tracker</h1>
-      <ExpanceForm onAddExpance={addExpance} />
-      <h3 className='total'>Total Expance : {2}</h3>
-      <ExpanceList expanes={expanes} delExpance={delExpance} />
+      <h1>Expense Tracker</h1>
+      <ExpenseForm onAddExpense={addExpense} />
+      <h3 className='total'>Total Expense : {total}</h3>
+      <ExpenseList expanes={expanes} delExpense={delExpense} />
     </div>
   )
 }
