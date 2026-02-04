@@ -1,9 +1,9 @@
-import Page from './components/React/08';
+import Index from './components/Expance';
 
 export default function App() {
   return (
     <div>
-      <Page />
+      <Index />
     </div>
   )
 }
