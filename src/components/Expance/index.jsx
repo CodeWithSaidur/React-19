@@ -23,6 +23,12 @@ export default function Index() {
     setExpanes(expanes.filter(exp => exp.id !== id))
   }
 
+  const togol = (id) => {
+    setExpanes(expanes.map((i) => (
+      i.id === id ? { ...i, completed: !i.completed } : {i}
+    )))
+  }
+
   let total = expanes.reduce((sum, item) => sum + item.amount, 0)
 
   return (
@@ -30,7 +36,7 @@ export default function Index() {
       <h1>Expense Tracker</h1>
       <ExpenseForm onAddExpense={addExpense} />
       <h3 className='total'>Total Expense : {total}</h3>
-      <ExpenseList expanes={expanes} delExpense={delExpense} />
+      <ExpenseList expanes={expanes} delExpense={delExpense} togol={togol} />
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import ExpenseItems from './ExpenseItems'
 
-export default function ExpenseList({ expanes, delExpense }) {
+export default function ExpenseList({ expanes, delExpense, togol }) {
     if (expanes.length === 0) {
         return <p>No Expences</p>
     }
@@ -8,7 +8,7 @@ export default function ExpenseList({ expanes, delExpense }) {
         <div>
             {
                 expanes.map((i) => (
-                    <ExpenseItems key={i.id} item={i} onDel={delExpense} />
+                    <ExpenseItems key={i.id} item={i} onDel={delExpense} togol={togol}  />
                 ))
             }
         </div>

@@ -15,7 +15,8 @@ export default function ExpenseForm({ onAddExpense }) {
         const newExpense = {
             id: Date.now(),
             title,
-            amount: parseFloat(amount)
+            amount: parseFloat(amount),
+            completed: false
         }
 
         onAddExpense(newExpense)
