@@ -1,9 +1,9 @@
-import Index from './props_drilling'
+import Parent from './State_Lifting/parent'
 
 function App() {
   return (
     <div>
-      <Index />
+      <Parent />
     </div>
   )
 }
