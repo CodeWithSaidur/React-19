@@ -1,7 +1,10 @@
+import Index from './props_drilling'
 
 function App() {
   return (
-    <div>App</div>
+    <div>
+      <Index />
+    </div>
   )
 }
 
