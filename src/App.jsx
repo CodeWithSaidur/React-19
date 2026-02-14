@@ -1,11 +1,7 @@
-import Parent from './State_Lifting/parent'
+import React from 'react'
 
-function App() {
-  return (
-    <div>
-      <Parent />
-    </div>
-  )
+export default function App() {
+    return (
+        <div>App</div>
+    )
 }
-
-export default App
