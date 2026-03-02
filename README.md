@@ -4,7 +4,7 @@
 - [x] Folder Structure
 - [x] JSX
 - [x] Styling
-- [x] Functions and Evennts
+- [x] Functions and Events
 - [x] Array and Object
 - [X] Props
 - [X] State
@@ -15,3 +15,4 @@
 - [X] state Lifting
 - [X] Shared state
 - [X] useContext
+- [X] useReducer
