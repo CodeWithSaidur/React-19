@@ -1,21 +1,21 @@
-// import { useState } from 'react'
+import { useState } from 'react'
 
-// export default function App() {
+export default function App() {
 
-//   const [c, setc] = useState(0)
+  const [c, setc] = useState(0)
 
-//   let inc = () => {
-//     setc(c + 1)
-//     console.log('----------'); 
-//   }
+  let inc = () => {
+    setc(c + 1)
+    console.log('----------'); 
+  }
 
-//   return (
-//     <div>
-//       <p>{c}</p>
-//       <button onClick={inc}>+</button>
-//     </div>
-//   )
-// }
+  return (
+    <div>
+      <p>{c}</p>
+      <button onClick={inc}>+</button>
+    </div>
+  )
+}
 
 
 import { useCallback, useState } from "react";
